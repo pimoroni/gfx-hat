@@ -73,7 +73,7 @@ def set_repeat_rate(rate):
 
     _cap1166.set_repeat_rate(rate)
 
-def on(buttons):
+def on(buttons, handler=None):
     """Handle a press of one or more buttons
 
     Decorator. Use with @captouch.on(UP)
@@ -88,6 +88,10 @@ def on(buttons):
         for button in buttons:
             _cap1166.on(channel=button, event='press', handler=handler)
             _cap1166.on(channel=button, event='held', handler=handler)
+
+    if handler is not None:
+        register(handler)
+        return
 
     return register
 
