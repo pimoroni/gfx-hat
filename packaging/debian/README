@@ -1,0 +1,8 @@
+README
+
+Python library for the Pimoroni GFX HAT
+
+GFX HAT sports Cap1166 touch and LED, an st7567 LCD and an sn3218-powered 6 zone RGB backlight.
+
+Learn more: https://shop.pimoroni.com/products/gfx-hat
+For examples run: `curl -sS https://get.pimoroni.com/gfxhat | bash`
