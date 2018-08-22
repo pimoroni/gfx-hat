@@ -18,7 +18,11 @@ Press Ctrl+C or select "Exit" to exit.
 
 width, height = lcd.dimensions()
 
-font = ImageFont.truetype(fonts.Bitbuntu, 10)
+# A squarer pixel font
+#font = ImageFont.truetype(fonts.BitocraFull, 11)
+
+# A slightly rounded, Ubuntu-inspired version of Bitocra
+font = ImageFont.truetype(fonts.BitbuntuFull, 10)
 
 image = Image.new('P', (width, height))
 

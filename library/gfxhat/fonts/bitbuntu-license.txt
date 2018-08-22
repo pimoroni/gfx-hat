@@ -1,4 +1,8 @@
-Bitbuntu.bdf from https://github.com/ninjaaron/bitocra
+Bitbuntu.bdf
+Bitbuntu-Full.bdf
+Bitocra-13-Full.bdf
+Bitocra-Full.bdf
+from https://github.com/ninjaaron/bitocra
 
 Copyright (c) 2011, Aaron Christianson ninjaaron@gmail.com
 with Reserved Font Names "bitocra" "bitocrafull".
