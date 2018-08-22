@@ -100,7 +100,7 @@ class ST7567:
         return (WIDTH, HEIGHT)
 
     def clear(self):
-        self.buf = [0 for _ in range(128*64/8)]
+        self.buf = [0 for _ in range(128*64//8)]
 
     def _command(self, data):
         GPIO.output(self.pin_dc, 0)

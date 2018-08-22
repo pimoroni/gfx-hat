@@ -1,4 +1,4 @@
-from st7567 import ST7567
+from .st7567 import ST7567
 
 st7567 = ST7567()
 
