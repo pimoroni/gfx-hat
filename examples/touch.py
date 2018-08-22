@@ -3,6 +3,15 @@
 import signal
 from gfxhat import touch
 
+print("""touch.py
+
+This basic example shows you the channel/event values you can expect
+when touching different buttons.
+
+Press Ctrl+C to exit.
+
+""")
+
 def handler(channel, event):
     print("Got {} on channel {}".format(event, channel))
     

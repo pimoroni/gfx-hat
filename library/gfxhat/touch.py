@@ -8,13 +8,16 @@ I2C_ADDR = 0x2c
 UP = 0
 DOWN = 1
 BACK = 2
-MINUS = 3
-SELECT = 4
-PLUS = 5
+MINUS = LEFT = 3
+SELECT = ENTER = 4
+PLUS = RIGHT = 5
 
 LED_MAPPING = [5, 4, 3, 2, 1, 0]
 
+NAME_MAPPING = ['up', 'down', 'back', 'minus', 'select', 'plus']
+
 def setup():
+    """Set up the touch input on GFX HAT"""
     global _cap1166, is_setup
 
     if is_setup:
@@ -27,9 +30,13 @@ def setup():
 
     # Force recalibration
     _cap1166._write_byte(0x26, 0b00111111)
-    #_cap1166._write_byte(0x1F, 0b00000000)
+    _cap1166._write_byte(0x1F, 0b01000000)
 
     is_setup = True
+
+def get_name(index):
+    """Get the name of a touch pad from its channel index"""
+    return NAME_MAPPING[index]
 
 def set_led(index, state):
     """Set LED state

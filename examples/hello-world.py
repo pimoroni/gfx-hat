@@ -6,6 +6,16 @@ import signal
 from gfxhat import touch, lcd, backlight, fonts
 from PIL import Image, ImageFont, ImageDraw
 
+print("""hello-world.py
+
+This basic example prints the text "Hello World" in the middle of the LCD
+
+Press any button to see its corresponding LED toggle on/off.
+
+Press Ctrl+C to exit.
+
+""")
+
 led_states = [False for _ in range(6)]
 
 width, height = lcd.dimensions()
@@ -59,6 +69,7 @@ try:
 except KeyboardInterrupt:
     for x in range(6):
         backlight.set_pixel(x, 0, 0, 0)
+        touch.set_led(x, 0)
     backlight.show()
     lcd.clear()
     lcd.show()
