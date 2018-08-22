@@ -4,4 +4,6 @@ include README.txt
 include setup.py
 recursive-include gfxhat *.py
 recursive-include gfxhat/fonts *.ttf
+recursive-include gfxhat/fonts *.bdf
 include gfxhat/fonts/OFL.txt
+include gfxhat/fonts/bitbuntu-license.txt

@@ -18,7 +18,7 @@ Press Ctrl+C or select "Exit" to exit.
 
 width, height = lcd.dimensions()
 
-font = ImageFont.truetype(fonts.PressStart2P, 8)
+font = ImageFont.truetype(fonts.Bitbuntu, 10)
 
 image = Image.new('P', (width, height))
 
@@ -98,7 +98,7 @@ try:
             y = (index * 12) + (height / 2) - 4 - offset_top
             option = menu_options[index]
             if index == current_menu_option:
-                draw.rectangle(((x-2, y-2), (width, y+8)), 1)
+                draw.rectangle(((x-2, y-1), (width, y+10)), 1)
             draw.text((x, y), option.name, 0 if index == current_menu_option else 1, font)
 
         w, h = font.getsize('>')
