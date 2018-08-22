@@ -17,10 +17,17 @@ LED_MAPPING = [5, 4, 3, 2, 1, 0]
 def setup():
     global _cap1166, is_setup
 
+    if is_setup:
+        return
+
     _cap1166 = cap1xxx.Cap1166(i2c_addr=I2C_ADDR)
 
     for x in range(6):
         _cap1166.set_led_linking(x, 0)
+
+    # Force recalibration
+    _cap1166._write_byte(0x26, 0b00111111)
+    #_cap1166._write_byte(0x1F, 0b00000000)
 
     is_setup = True
 
@@ -31,7 +38,9 @@ def set_led(index, state):
     :param state: LED state (1 = on, 0 = off)
 
     """
+
     setup()
+
     _cap1166.set_led_state(LED_MAPPING[index], state)
 
 def high_sensitivity():
@@ -41,6 +50,8 @@ def high_sensitivity():
     touch through 3mm perspex or similar materials.
 
     """
+
+    setup()
 
     _cap1166._write_byte(0x00, 0b11000000)
     _cap1166._write_byte(0x1f, 0b00000000)
@@ -55,6 +66,8 @@ def enable_repeat(enable):
     :param enable: enable/disable repeat: True/False
 
     """
+
+    setup()
 
     if enable:
         _cap1166.enable_repeat(0b11111111)
@@ -71,6 +84,8 @@ def set_repeat_rate(rate):
 
     """
 
+    setup()
+
     _cap1166.set_repeat_rate(rate)
 
 def on(buttons, handler=None):
@@ -82,11 +97,15 @@ def on(buttons, handler=None):
     :param bounce: Maintained for compatibility with Dot3k joystick, unused
 
     """
+
+    setup()
+
     buttons = buttons if isinstance(buttons, list) else [buttons]
 
     def register(handler):
         for button in buttons:
             _cap1166.on(channel=button, event='press', handler=handler)
+            _cap1166.on(channel=button, event='release', handler=handler)
             _cap1166.on(channel=button, event='held', handler=handler)
 
     if handler is not None:

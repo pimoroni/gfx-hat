@@ -54,4 +54,12 @@ for x in range(128):
 
 lcd.show()
 
-signal.pause()
+try:
+    signal.pause()
+except KeyboardInterrupt:
+    for x in range(6):
+        backlight.set_pixel(x, 0, 0, 0)
+    backlight.show()
+    lcd.clear()
+    lcd.show()
+
