@@ -40,9 +40,9 @@ def handler(ch, event):
         led_states[ch] = not led_states[ch]
         touch.set_led(ch, led_states[ch])
         if led_states[ch]:
-            backlight.set_pixel(ch, 0, 128, 128)
+            backlight.set_pixel(ch, 0, 255, 255)
         else:
-            backlight.set_pixel(ch, 0, 128, 0)
+            backlight.set_pixel(ch, 0, 255, 0)
         backlight.show()
 
 for x in range(6):
@@ -51,7 +51,7 @@ for x in range(6):
     touch.set_led(x, 0)
 
 for x in range(6):
-    backlight.set_pixel(x, 0, 128, 0)
+    backlight.set_pixel(x, 0, 255, 0)
     touch.on(x, handler)
 
 backlight.show()
