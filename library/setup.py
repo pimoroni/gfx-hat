@@ -50,5 +50,7 @@ setup(
     classifiers     = classifiers,
     py_modules      = [],
     packages        = ['gfxhat'],
+    package_data    = {'gfxhat': ['gfxhat/fonts']},
+    include_package_data = True,
     install_requires= ['cap1xxx', 'sn3218']
 )
