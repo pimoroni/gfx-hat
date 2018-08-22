@@ -47,8 +47,8 @@ menu_options = [
             MenuOption('Set BL Red', set_backlight, (255, 0, 0)),
             MenuOption('Set BL Green', set_backlight, (0, 255, 0)),
             MenuOption('Set BL Blue', set_backlight, (0, 0, 255)),
-            MenuOption('Set BL Purple', set_backlight, (128, 0, 128)),
-            MenuOption('Set BL White', set_backlight, (128, 128, 128)),
+            MenuOption('Set BL Purple', set_backlight, (255, 0, 255)),
+            MenuOption('Set BL White', set_backlight, (255, 255, 255)),
             MenuOption('Exit', sys.exit, (0,))
         ]
 
@@ -70,7 +70,7 @@ def handler(ch, event):
 
 for x in range(6):
     touch.set_led(x, 0)
-    backlight.set_pixel(x, 128, 128, 128)
+    backlight.set_pixel(x, 255, 255, 255)
     touch.on(x, handler)
 
 backlight.show()
