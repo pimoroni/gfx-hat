@@ -46,6 +46,12 @@ sudo python3 setup.py install
 
 In all cases you will have to enable the i2c and spi buses.
 
+## Licensing
+
+Files under library/gfxhat/fonts are licensed according supplied OFL licenses.
+
+Bitbuntu and Bitocra fonts from: https://github.com/ninjaaron/bitocra
+
 ## Documentation & Support
 
 * Guides and tutorials - https://learn.pimoroni.com/gfx-hat
