@@ -1,6 +1,6 @@
 include CHANGELOG.txt
 include LICENSE.txt
-include README.txt
+include README.rst
 include setup.py
 recursive-include gfxhat *.py
 recursive-include gfxhat/fonts *.ttf

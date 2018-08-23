@@ -43,7 +43,7 @@ setup(
     author          = 'Philip Howard',
     author_email    = 'phil@pimoroni.com',
     description     = """Python library for driving Pimoroni GFX HAT!""",
-    long_description= open('README.rst').read() + open('CHANGELOG.txt').read(),
+    long_description= open('README.rst').read() + '\n' + open('CHANGELOG.txt').read(),
     license         = 'MIT',
     keywords        = 'Raspberry Pi',
     url             = 'http://www.pimoroni.com',
