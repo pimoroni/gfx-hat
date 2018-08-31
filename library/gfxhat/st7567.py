@@ -101,7 +101,7 @@ class ST7567:
         return (WIDTH, HEIGHT)
 
     def clear(self):
-        self.buf = [0 for _ in range(128*64//8)]
+        self.buf = [0 for _ in range(128 * 64 // 8)]
 
     def _command(self, data):
         GPIO.output(self.pin_dc, 0)
@@ -132,7 +132,7 @@ class ST7567:
         ])
 
     def set_pixel(self, x, y, value):
-        offset = ((y//8) * WIDTH) + x
+        offset = ((y // 8) * WIDTH) + x
         bit = y % 8
         self.buf[offset] &= ~(1 << bit)
         self.buf[offset] |= (value & 1) << bit
@@ -143,7 +143,7 @@ class ST7567:
         for page in range(8):
             offset = page * ST7567_PAGESIZE
             self._command([ST7567_SETPAGESTART | page, ST7567_SETCOLL, ST7567_SETCOLH])
-            self._data(self.buf[offset:offset+ST7567_PAGESIZE])
+            self._data(self.buf[offset:offset + ST7567_PAGESIZE])
         self._command([ST7567_EXIT_RMWMODE])
 
 
@@ -153,8 +153,8 @@ if __name__ == "__main__":
 
     for x in range(64):
         st7567.set_pixel(x, x, 1)
-        st7567.set_pixel(64-x, x, 1)
-        st7567.set_pixel(x+2, x, 1)
+        st7567.set_pixel(64 - x, x, 1)
+        st7567.set_pixel(x + 2, x, 1)
     st7567.show()
 
     time.sleep(2.0)

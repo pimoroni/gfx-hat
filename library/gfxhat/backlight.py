@@ -30,7 +30,7 @@ def set_pixel(x, r, g, b):
 
     x = LED_MAP[x]
     x *= 3
-    _buf[x:x+3] = b, g, r
+    _buf[x:x + 3] = b, g, r
 
 
 def set_all(r, g, b):

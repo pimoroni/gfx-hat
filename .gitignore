@@ -16,3 +16,6 @@ __pycache__
 packaging/*tar.xz
 library/debian/
 .vscode/
+.pytest_cache/
+.tox/
+.coverage
