@@ -16,6 +16,7 @@ LED_MAPPING = [5, 4, 3, 2, 1, 0]
 
 NAME_MAPPING = ['up', 'down', 'back', 'minus', 'select', 'plus']
 
+
 def setup():
     """Set up the touch input on GFX HAT"""
     global _cap1166, is_setup
@@ -34,9 +35,11 @@ def setup():
 
     is_setup = True
 
+
 def get_name(index):
     """Get the name of a touch pad from its channel index"""
     return NAME_MAPPING[index]
+
 
 def set_led(index, state):
     """Set LED state
@@ -50,6 +53,7 @@ def set_led(index, state):
 
     _cap1166.set_led_state(LED_MAPPING[index], state)
 
+
 def high_sensitivity():
     """Switch to high sensitivity mode
 
@@ -62,6 +66,7 @@ def high_sensitivity():
 
     _cap1166._write_byte(0x00, 0b11000000)
     _cap1166._write_byte(0x1f, 0b00000000)
+
 
 def enable_repeat(enable):
     """Enable touch hold repeat
@@ -81,6 +86,7 @@ def enable_repeat(enable):
     else:
         _cap1166.enable_repeat(0b00000000)
 
+
 def set_repeat_rate(rate):
     """Set hold repeat rate
 
@@ -95,11 +101,12 @@ def set_repeat_rate(rate):
 
     _cap1166.set_repeat_rate(rate)
 
+
 def on(buttons, handler=None):
     """Handle a press of one or more buttons
 
     Decorator. Use with @captouch.on(UP)
-    
+
     :param buttons: List, or single instance of cap touch button constant
     :param bounce: Maintained for compatibility with Dot3k joystick, unused
 
@@ -120,4 +127,3 @@ def on(buttons, handler=None):
         return
 
     return register
-
