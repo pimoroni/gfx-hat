@@ -89,7 +89,7 @@ Documentation & Support
    :target: https://travis-ci.com/pimoroni/gfx-hat
 .. |Coverage Status| image:: https://coveralls.io/repos/github/pimoroni/gfx-hat/badge.svg?branch=master
    :target: https://coveralls.io/github/pimoroni/gfx-hat?branch=master
-.. |PyPi Package| image:: https://img.shields.io/pypi/v/gfx-hat.svg
-   :target: https://pypi.python.org/pypi/gfx-hat
-.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/gfx-hat.svg
-   :target: https://pypi.python.org/pypi/gfx-hat
+.. |PyPi Package| image:: https://img.shields.io/pypi/v/gfxhat.svg
+   :target: https://pypi.python.org/pypi/gfxhat
+.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/gfxhat.svg
+   :target: https://pypi.python.org/pypi/gfxhat
