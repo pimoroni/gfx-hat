@@ -1,0 +1,15 @@
+import easygfx # has all modules such as time, touch, lcd, backlight
+import time
+
+easygfx.set_backlight(255, 0, 125)
+easygfx.settext("Hello World", 38) # text to show, and then fontsize
+time.sleep(1)
+easygfx.settwolinetext("Hello", "World", 25, 25)
+time.sleep(1)
+easygfx.showdate()
+time.sleep(2)
+easygfx.showtime()
+time.sleep(1)
+easygfx.showfulltime()
+time.sleep(1)
+easygfx.cleanup()
