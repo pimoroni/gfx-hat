@@ -1,0 +1,96 @@
+import time
+import signal
+
+from gfxhat import touch, lcd, backlight, fonts
+from PIL import Image, ImageFont, ImageDraw
+import datetime
+def settext(wts, fontsize):
+    if fontsize is None:
+        fontsize = 10
+    width, height = lcd.dimensions()
+    image = Image.new('P', (width, height))
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype(fonts.AmaticSCBold, int(fontsize))
+    text = str(wts)
+    w, h = font.getsize(text)
+    x = (width - w) // 2
+    y = (height - h) // 2
+    draw.text((x, y), text, 1, font)
+    for x in range(128):
+        for y in range(64):
+            pixel = image.getpixel((x, y))
+            lcd.set_pixel(x, y, pixel)
+    lcd.show()
+
+def settwolinetext(firstline, secondline, fontsizeone, fontsizetwo):
+    if fontsizetwo == None:
+        if fontsizeone is not None:
+            fontsizetwo = fontsizeone
+        else:
+            fontsizeone = fontsizetwo = 25
+    width, height = lcd.dimensions()
+    height = int(height/2)
+    image = Image.new('P', (width, height))
+
+    draw = ImageDraw.Draw(image)
+
+    font = ImageFont.truetype(fonts.AmaticSCBold, fontsizeone)
+
+    text = firstline
+
+    w, h = font.getsize(text)
+
+    x = (width - w) // 2
+    y = (height - h) // 2
+
+    draw.text((x, y), text, 1, font)
+    for x in range(128):
+        for y in range(32):
+            pixel = image.getpixel((x, y))
+            lcd.set_pixel(x, y, pixel)
+
+    width, height = lcd.dimensions()
+    height = int(height/2)
+    image = Image.new('P', (width, height))
+
+    draw = ImageDraw.Draw(image)
+
+    font = ImageFont.truetype(fonts.AmaticSCBold, fontsizetwo)
+
+    text = secondline
+
+    w, h = font.getsize(text)
+
+    x = (width - w) // 2
+    y = (height - h) // 2
+
+    draw.text((x, y), text, 1, font)
+    for x in range(128):
+        for y in range(32):
+            pixel = image.getpixel((x, y))
+            lcd.set_pixel(x, (y + 32), pixel)
+    lcd.show()
+
+def showtime():
+    tim = datetime.datetime.now()
+    #h = tim.strftime("%I:%M:%S:%p")
+    h = tim.strftime("%I:%M:%p")
+    settext(str(h), 38)
+def showfulltime():
+    tim = datetime.datetime.now()
+    h = tim.strftime("%I:%M:%S:%p")
+    #h = tim.strftime("%I:%M:%p")
+    settext(str(h), 35)
+def showdate():
+    tim = datetime.datetime.now()
+    #h = tim.strftime("%I:%M:%S:%p")
+    h = tim.strftime("%A, %d %b, %y")
+    settext(str(h), 20)
+def set_backlight(r, g, b):
+    backlight.set_all(r, g, b)
+    backlight.show()
+def cleanup():
+    backlight.set_all(0, 0, 0)
+    backlight.show()
+    lcd.clear()
+    lcd.show()
