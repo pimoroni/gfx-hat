@@ -1,3 +1,4 @@
+"""Library for the GFX HAT ST7567 SPI LCD."""
 from .st7567 import ST7567
 
 st7567 = ST7567()

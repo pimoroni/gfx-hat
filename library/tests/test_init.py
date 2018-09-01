@@ -1,8 +1,10 @@
+# noqa D100
 import sys
 import mock
 
 
-def test_init():
+def test_st7567_init():
+    """Test that the ST7567 initialises correctly."""
     from tools import GPIO
     gpio = GPIO()
     sys.modules['RPi'] = mock.Mock()

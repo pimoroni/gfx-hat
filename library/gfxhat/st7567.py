@@ -1,3 +1,4 @@
+"""Library for the ST7567 128x64 SPI LCD."""
 import RPi.GPIO as GPIO
 import spidev
 import time
@@ -70,7 +71,18 @@ ST7565_STARTBYTES = 0
 
 
 class ST7567:
+    """Class to drive the ST7567 128x64 SPI LCD."""
+
     def __init__(self, pin_rst=PIN_RST, pin_dc=PIN_DC, spi_bus=0, spi_cs=0, spi_speed=SPI_SPEED_HZ):
+        """Initialise the ST7567 class.
+
+        :param pin_rst: BCM GPIO pin number for reset
+        :param pin_dc: BCM GPIO pin number for data/command
+        :param spi_bus: SPI bus ID
+        :param spi_cs: SPI chipselect ID (0/1 not BCM pin number)
+        :param spi_speed: SPI speed (hz)
+
+        """
         self._is_setup = False
         self.pin_rst = pin_rst
         self.pin_dc = pin_dc
@@ -80,6 +92,7 @@ class ST7567:
         self.clear()
 
     def setup(self):
+        """Set up GPIO and initialise the ST7567 device."""
         if self._is_setup:
             return True
 
@@ -98,9 +111,11 @@ class ST7567:
         self._is_setup = True
 
     def dimensions(self):
+        """Return the ST7567 display dimensions."""
         return (WIDTH, HEIGHT)
 
     def clear(self):
+        """Clear the python display buffer."""
         self.buf = [0 for _ in range(128 * 64 // 8)]
 
     def _command(self, data):
@@ -132,12 +147,20 @@ class ST7567:
         ])
 
     def set_pixel(self, x, y, value):
+        """Set a single pixel in the python display buffer.
+
+        :param x: X position (from 0 to 127)
+        :param y: Y position (from 0 to 63)
+        :param value: pixel state 1 = On, 0 = Off
+
+        """
         offset = ((y // 8) * WIDTH) + x
         bit = y % 8
         self.buf[offset] &= ~(1 << bit)
         self.buf[offset] |= (value & 1) << bit
 
     def show(self):
+        """Update the ST7567 display with the buffer contents."""
         self.setup()
         self._command([ST7567_ENTER_RMWMODE])
         for page in range(8):
@@ -147,7 +170,7 @@ class ST7567:
         self._command([ST7567_EXIT_RMWMODE])
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     st7567 = ST7567()
     st7567.setup()
 
@@ -165,5 +188,6 @@ if __name__ == "__main__":
                 for y in range(64):
                     st7567.set_pixel(x, y, random.randint(0, 1))
             st7567.show()
+
     except KeyboardInterrupt:
         pass
