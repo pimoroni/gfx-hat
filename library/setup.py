@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Copyright (c) 2016 Pimoroni
+Copyright (c) 2016 Pimoroni.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
@@ -38,19 +38,19 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Topic :: System :: Hardware']
 
 setup(
-    name            = 'gfxhat',
-    version         = '0.0.1',
-    author          = 'Philip Howard',
-    author_email    = 'phil@pimoroni.com',
-    description     = """Python library for driving Pimoroni GFX HAT!""",
-    long_description= open('README.rst').read() + '\n' + open('CHANGELOG.txt').read(),
-    license         = 'MIT',
-    keywords        = 'Raspberry Pi',
-    url             = 'http://www.pimoroni.com',
-    classifiers     = classifiers,
-    py_modules      = [],
-    packages        = ['gfxhat'],
-    package_data    = {'gfxhat': ['gfxhat/fonts']},
-    include_package_data = True,
-    install_requires= ['cap1xxx', 'sn3218']
+    name='gfxhat',
+    version='0.0.1',
+    author='Philip Howard',
+    author_email='phil@pimoroni.com',
+    description="""Python library for driving Pimoroni GFX HAT!""",
+    long_description=open('README.rst').read() + '\n' + open('CHANGELOG.txt').read(),
+    license='MIT',
+    keywords='Raspberry Pi',
+    url='http://www.pimoroni.com',
+    classifiers=classifiers,
+    py_modules=[],
+    packages=['gfxhat'],
+    package_data={'gfxhat': ['gfxhat/fonts']},
+    include_package_data=True,
+    install_requires=['cap1xxx', 'sn3218']
 )

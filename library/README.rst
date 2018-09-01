@@ -3,6 +3,8 @@ GFX HAT
 
 https://shop.pimoroni.com/products/gfx-hat
 
+|Build Status| |Coverage Status| |PyPi Package| |Python Versions|
+
 Combining a 128x64 pixel monochrome LCD, 6 touch buttons, a 6 zone RGB
 backlight and 6 button LEDs the GFX HAT has everything you need to turn
 your Pi into a controller and status display.
@@ -82,3 +84,12 @@ Documentation & Support
 -  Function reference - http://docs.pimoroni.com/gfxhat/
 -  GPIO Pinout - https://pinout.xyz/pinout/gfx\_hat
 -  Get help - http://forums.pimoroni.com/c/support
+
+.. |Build Status| image:: https://travis-ci.com/pimoroni/gfx-hat.svg?branch=master
+   :target: https://travis-ci.com/pimoroni/gfx-hat
+.. |Coverage Status| image:: https://coveralls.io/repos/github/pimoroni/gfx-hat/badge.svg?branch=master
+   :target: https://coveralls.io/github/pimoroni/gfx-hat?branch=master
+.. |PyPi Package| image:: https://img.shields.io/pypi/v/gfxhat.svg
+   :target: https://pypi.python.org/pypi/gfxhat
+.. |Python Versions| image:: https://img.shields.io/pypi/pyversions/gfxhat.svg
+   :target: https://pypi.python.org/pypi/gfxhat
