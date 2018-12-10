@@ -13,7 +13,7 @@ Combining a 128x64 pixel monochrome LCD, 6 touch buttons, a 6 zone RGB backlight
 
 ### Full install (recommended):
 
-We've created an easy installation script that will install all pre-requisites and get your Pan-Tilt HAT
+We've created an easy installation script that will install all pre-requisites and get your GFX HAT
 up and running with minimal efforts. To run it, fire up Terminal which you'll find in Menu -> Accessories -> Terminal
 on your Raspberry Pi desktop, as illustrated below:
 
