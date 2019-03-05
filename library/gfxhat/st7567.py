@@ -170,7 +170,8 @@ class ST7567:
         self._command([ST7567_EXIT_RMWMODE])
 
     def contrast(self, value):
-        self._command([ST7567_SETCONTRAST,value])
+        self._command([ST7567_SETCONTRAST, value])
+
 
 if __name__ == '__main__':
     st7567 = ST7567()
