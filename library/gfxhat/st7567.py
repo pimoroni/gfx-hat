@@ -140,7 +140,7 @@ class ST7567:
             ST7567_DISPNORMAL,        # Inverse display (0xA6 normal)
             ST7567_SETSTARTLINE | 0,  # Start at line 0
             ST7567_POWERCTRL,
-            ST7567_REG_RATIO | 2,
+            ST7567_REG_RATIO | 3,
             ST7567_DISPON,
             ST7567_SETCONTRAST,       # Set contrast
             58                        # Contrast value
@@ -168,6 +168,9 @@ class ST7567:
             self._command([ST7567_SETPAGESTART | page, ST7567_SETCOLL, ST7567_SETCOLH])
             self._data(self.buf[offset:offset + ST7567_PAGESIZE])
         self._command([ST7567_EXIT_RMWMODE])
+
+    def contrast(self, value):
+        self._command([ST7567_SETCONTRAST, value])
 
 
 if __name__ == '__main__':

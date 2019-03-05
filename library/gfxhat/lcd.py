@@ -25,3 +25,7 @@ def set_pixel(x, y, value):
 def show():
     """Update GFX HAT with the current buffer contents."""
     st7567.show()
+
+
+def contrast(value):
+    st7567.contrast(value)
