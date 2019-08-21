@@ -29,3 +29,22 @@ def show():
 
 def contrast(value):
     st7567.contrast(value)
+
+def rotation(r=0):
+    """Set the display rotation
+    :param r: Specify the rotation in degrees: 0, or 180
+    """
+    if r == 0:
+        st7567.rotated = False
+    
+    elif r == 180:
+        st7567.rotated = True
+
+    else:
+        raise ValueError('Rotation must be 0 or 180 degrees')
+
+def get_rotation():
+    """Get the display rotation value
+    Returns an integer, either 0, or 180
+    """
+    return 180 if st7567.rotated else 0
