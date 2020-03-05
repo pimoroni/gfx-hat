@@ -89,6 +89,9 @@ class ST7567:
         self.spi_bus = spi_bus
         self.spi_cs = spi_cs
         self.spi_speed = spi_speed
+
+        self.rotated = False
+
         self.clear()
 
     def setup(self):
@@ -154,6 +157,9 @@ class ST7567:
         :param value: pixel state 1 = On, 0 = Off
 
         """
+        if self.rotated:
+            x = (WIDTH - 1) - x
+            y = (HEIGHT - 1) - y
         offset = ((y // 8) * WIDTH) + x
         bit = y % 8
         self.buf[offset] &= ~(1 << bit)
@@ -170,6 +176,7 @@ class ST7567:
         self._command([ST7567_EXIT_RMWMODE])
 
     def contrast(self, value):
+        self.setup()
         self._command([ST7567_SETCONTRAST, value])
 
 
