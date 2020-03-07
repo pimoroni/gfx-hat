@@ -8,6 +8,9 @@ import pytest
 def GPIO():
     """Mock RPi.GPIO module."""
     GPIO = mock.MagicMock()
+    # Fudge for Python < 37 (possibly earlier)
+    sys.modules['RPi'] = mock.MagicMock()
+    sys.modules['RPi'].GPIO = GPIO
     sys.modules['RPi.GPIO'] = GPIO
     return GPIO
 
