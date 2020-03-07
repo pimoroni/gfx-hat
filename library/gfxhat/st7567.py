@@ -176,11 +176,12 @@ class ST7567:
         self._command([ST7567_EXIT_RMWMODE])
 
     def contrast(self, value):
+        """Update the ST7568 display contrast."""
         self.setup()
         self._command([ST7567_SETCONTRAST, value])
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     st7567 = ST7567()
     st7567.setup()
 

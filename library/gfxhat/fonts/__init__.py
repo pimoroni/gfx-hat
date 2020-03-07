@@ -1,4 +1,5 @@
 """Basic font helper module."""
+# TODO This became fonts-python and should be replaced
 import os
 import glob
 

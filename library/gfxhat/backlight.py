@@ -52,7 +52,7 @@ def show():
     _sn3218.output(_buf)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # pragma: no cover
     import time
     import colorsys
 
