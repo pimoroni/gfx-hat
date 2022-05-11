@@ -60,7 +60,6 @@ Bitbuntu and Bitocra fonts from: https://github.com/ninjaaron/bitocra
 
 ## Documentation & Support
 
-* Guides and tutorials - https://learn.pimoroni.com/gfx-hat
 * Function reference - http://docs.pimoroni.com/gfxhat/
 * GPIO Pinout - https://pinout.xyz/pinout/gfx_hat
 * Get help - http://forums.pimoroni.com/c/support
