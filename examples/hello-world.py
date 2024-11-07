@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-import time
 import signal
+import time
 
-from gfxhat import touch, lcd, backlight, fonts
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
+
+from gfxhat import backlight, fonts, lcd, touch
 
 print("""hello-world.py
 

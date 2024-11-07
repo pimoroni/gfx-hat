@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-import time
-import sys
 import atexit
+import sys
+import time
 
-from gfxhat import touch, lcd, backlight, fonts
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
+
+from gfxhat import backlight, fonts, lcd, touch
 
 print("""menu-options.py
 

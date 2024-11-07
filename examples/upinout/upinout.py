@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-import time
-import sys
 import atexit
-from gfxhat import lcd, backlight, touch, fonts
-from PIL import Image, ImageDraw, ImageFont
+import time
+
 import yaml
+from PIL import Image, ImageDraw, ImageFont
+
+from gfxhat import backlight, fonts, lcd, touch
 
 print("""upinout.py
 
@@ -21,7 +22,7 @@ Press Ctrl + C to exit.
 
 """)
 
-pinout = yaml.load(open("pinout.yaml").read())
+pinout = yaml.load(open("pinout.yaml").read(), Loader=yaml.SafeLoader)
 src = Image.open("upinout.png").convert("P")
 
 width, height = lcd.dimensions()
@@ -115,7 +116,7 @@ while running:
             name = pin_details['name'].strip()
             if len(name) > 0:
                 name += ' '
-        
+
         draw.text((4, 34), "{}#{}".format(name, current_pin + 1), 1, font)
 
         if 'scheme' in pin_details:
@@ -131,7 +132,8 @@ while running:
             functions = pin_details['functions']
             alt_y = 0
             for alt in ['alt0', 'alt1', 'alt2']:
-                if alt not in functions: continue
+                if alt not in functions:
+                    continue
                 name = functions[alt]
                 draw.text((4, 34 + alt_y), "{}: {}".format(alt, name), 1, font)
                 alt_y += 8
@@ -141,14 +143,15 @@ while running:
             functions = pin_details['functions']
             alt_y = 0
             for alt in ['alt3', 'alt4']:
-                if alt not in functions: continue
+                if alt not in functions:
+                    continue
                 name = functions[alt]
                 draw.text((4, 34 + alt_y), "{}: {}".format(alt, name), 1, font)
                 alt_y += 8
 
     if 'functions' in pin_details:
         scroll_y = 33 + (current_page * 10)
-        draw.rectangle(((124, scroll_y),(126, scroll_y + 10)), 1) 
+        draw.rectangle(((124, scroll_y),(126, scroll_y + 10)), 1)
 
     backlight.set_all(255, 255, 255)
 
@@ -159,7 +162,7 @@ while running:
         if pin_type == 'GPIO/SPI':
             backlight.set_all(0, 0, 255)
         if pin_type == 'GND':
-            backlight.set_all(128, 128, 128)    
+            backlight.set_all(128, 128, 128)
         if pin_type == '+5v':
             backlight.set_all(255, 0, 0)
         if pin_type == '+3v3':

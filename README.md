@@ -1,8 +1,8 @@
 # GFX HAT
 https://shop.pimoroni.com/products/gfx-hat
 
-[![Build Status](https://travis-ci.com/pimoroni/gfx-hat.svg?branch=master)](https://travis-ci.com/pimoroni/gfx-hat)
-[![Coverage Status](https://coveralls.io/repos/github/pimoroni/gfx-hat/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/gfx-hat?branch=master)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/pimoroni/gfx-hat/test.yml?branch=main)](https://github.com/pimoroni/gfx-hat/actions/workflows/test.yml)
+[![Coverage Status](https://coveralls.io/repos/github/pimoroni/gfx-hat/badge.svg?branch=main)](https://coveralls.io/github/pimoroni/gfx-hat?branch=main)
 [![PyPi Package](https://img.shields.io/pypi/v/gfxhat.svg)](https://pypi.python.org/pypi/gfxhat)
 [![Python Versions](https://img.shields.io/pypi/pyversions/gfxhat.svg)](https://pypi.python.org/pypi/gfxhat)
 

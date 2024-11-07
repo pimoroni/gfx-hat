@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
-from gfxhat import lcd, backlight, fonts
-from PIL import Image, ImageFont, ImageDraw
 import time
+
+from PIL import Image, ImageDraw, ImageFont
+
+from gfxhat import backlight, fonts, lcd
 
 print("""
 
